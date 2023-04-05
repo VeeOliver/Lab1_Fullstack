@@ -1,0 +1,23 @@
+{
+  "name": "lab1_fullstack",
+  "version": "1.0.0",
+  "description": "Lab 1 of the Fullstack project course at Kristianstad University",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeeOliver/Lab1_Fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeeOliver/Lab1_Fullstack/issues"
+  },
+  "homepage": "https://github.com/VeeOliver/Lab1_Fullstack#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
