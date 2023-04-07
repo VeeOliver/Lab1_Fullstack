@@ -1,4 +1,4 @@
-/* 
+
 // create functions to use for get/put/post/delete
 //getAllAlbums, getSingleAlbum, updateAlbum, deleteAlbum, addAlbum 
 const Album = require('../models/albumModel')
@@ -71,4 +71,4 @@ module.exports = {
   updateAlbum,
   deleteAlbum,
   addAlbum
-} */
+} 
