@@ -15,8 +15,8 @@ const getAllAlbums = async (req, res) => {
 
 const getSingleAlbum = async (req, res) => {
   try {
-    const { id } = req.params;
-    const album = await Product.findById(id);
+    const { title } = req.params;
+    const album = await Album.find({ "title": title });
     res.status(200).json(album);
   } catch (error) {
     res.status(500).json({ message: error.message })

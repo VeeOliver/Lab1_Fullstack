@@ -5,7 +5,7 @@ const { getAllAlbums, getSingleAlbum, addAlbum, updateAlbum, deleteAlbum } = req
 router.route('/')
   .get(getAllAlbums)
 
-router.route('/:id')
+router.route('/:title')
   .get(getSingleAlbum)
   .put(updateAlbum)
   .post(addAlbum)
