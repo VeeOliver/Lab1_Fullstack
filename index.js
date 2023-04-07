@@ -1,21 +1,27 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
 const app = express()
+//const albumRoutes = require('./routes/albumRoutes')
+dotenv.config()
 
 
-app.use(express.json())
+app.use(express.json)
+app.use(express.urlencoded({ extended: false }))
 
 
+//app.use('/api/albums', albumRoutes)
 app.get('/', (req, res) => {
   res.send("Server started")
 })
 
 mongoose.
-  connect('mongodb+srv://administrator:j1GSDdw1m3UloG0y@cluster0.th8cigl.mongodb.net/Albums?retryWrites=true&w=majority')
+  connect(process.env.CONNECTIONURL)
   .then(() => {
     console.log('connected to MongoDB')
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000...')
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}`)
     })
 
   }).catch((error) => {
