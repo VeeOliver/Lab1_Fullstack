@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 // create schema for album with id, title, artist name and year
 const albumSchema = mongoose.Schema(
   {
-    _id: {
+    id: {
       type: Number,
       required: [true, "Please give this album an id number"]
     },

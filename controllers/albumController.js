@@ -44,7 +44,7 @@ const deleteAlbum = async (req, res) => {
     const { id } = req.params;
     const album = await Album.findByIdAndDelete(id);
     if (!album) {
-      return res.status(404).json({ message: `cannot find any product with ID ${id}` })
+      return res.status(404).json({ message: `cannot find any album with ID ${id}` })
     }
     res.status(200).json(album);
 

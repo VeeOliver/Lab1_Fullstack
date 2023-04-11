@@ -4,11 +4,13 @@ const { getAllAlbums, getSingleAlbum, addAlbum, updateAlbum, deleteAlbum } = req
 
 router.route('/')
   .get(getAllAlbums)
+  .post(addAlbum)
 
 router.route('/:title')
   .get(getSingleAlbum)
+
+router.route('/:id') 
   .put(updateAlbum)
-  .post(addAlbum)
   .delete(deleteAlbum)
 
 module.exports = router 

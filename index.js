@@ -1,13 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-
+const path = require('path')
 const app = express()
 const albumRoutes = require('./routes/albumRoutes')
 dotenv.config()
 
 
-//app.use(express.json)
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 //helpful debugging middleware 
 app.use((req, res, next) => {
@@ -15,11 +16,12 @@ app.use((req, res, next) => {
   next()
 })
 
-
+app.use(express.static(path.join(__dirname, "frontend")))
 app.use('/api/albums', albumRoutes)
-app.get('/', (req, res) => {
-  res.send("Server started")
-})
+
+/* app.get('/', (req, res) => {
+  res.sendFile(__dirname + "/index.html")
+}) */
 
 mongoose.
   connect(process.env.CONNECTIONURL)
