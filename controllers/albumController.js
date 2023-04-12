@@ -17,6 +17,9 @@ const getSingleAlbum = async (req, res) => {
   try {
     const { title } = req.params;
     const album = await Album.find({ "title": title });
+    if (album.length == 0) {
+      return res.status(404).json(`cannot find any album with title '${title}'`)
+    }
     res.status(200).json(album);
   } catch (error) {
     res.status(500).json({ message: error.message })
@@ -26,12 +29,11 @@ const getSingleAlbum = async (req, res) => {
 const updateAlbum = async (req, res) => {
   try {
     const { id } = req.params;
-    const album = await Album.findByIdAndUpdate(id, req.body);
-    //maybe search by title instead?
+    const album = await Album.findOneAndUpdate({ id }, req.body);
     if (!album) {
-      return res.status(404).json({ message: `cannot find any album with ID ${id}` })
+      return res.status(404).json({ message: `cannot find any album to update with this ID No.: ${id}` })
     }
-    const updatedAlbum = await Album.findById(id);
+    const updatedAlbum = await Album.findOne({ id });
     res.status(200).json(updatedAlbum);
 
   } catch (error) {
@@ -42,7 +44,7 @@ const updateAlbum = async (req, res) => {
 const deleteAlbum = async (req, res) => {
   try {
     const { id } = req.params;
-    const album = await Album.findByIdAndDelete(id);
+    const album = await Album.findOneAndDelete({ id });
     if (!album) {
       return res.status(404).json({ message: `cannot find any album with ID ${id}` })
     }
@@ -56,8 +58,17 @@ const deleteAlbum = async (req, res) => {
 
 const addAlbum = async (req, res) => {
   try {
-    const album = await Album.create(req.body)
-    res.status(200).json(album);
+    console.log(" this is the request " + req.params)
+    const { id, title, artist, year } = req.params;
+    console.log(`this is the ${id}`)
+    const album = await Album.findOne({ "id": id });
+    if (album) {
+      console.log("entered the if statment" + album)
+      return res.status(409).json(`This Album is already in the database`)
+    }
+    console.log('this is what the server is finding' + album)
+    const newAlbum = await Album.create(req.body)
+    res.status(200).json(newAlbum);
 
   } catch (error) {
     console.log(error.message);

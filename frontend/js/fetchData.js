@@ -4,21 +4,97 @@ const url = `http://localhost:3000/api/albums`
 
 export const fetchAlbums = async () => {
   console.log("we get into this method")
-  const response = await fetch(url)
-  if (!response.ok) {
-    console.log('An error has occurred trying to fetch the data')
+  try {
+    const response = await fetch(url)
+    if (!response.ok) {
+      console.log('An error has occurred trying to fetch the data')
+    }
+    let albums = await response.json()
+    return albums
+  } catch (error) {
+    console.error(error)
   }
-  let albums = await response.json()
-  return albums
+
 }
 
-export const fetchAlbum = async (id) => {
+export const fetchAlbum = async (title) => {
   console.log("we get into single album method")
-  const response = await fetch(url + "/" + id)
-  if (!response.ok) {
-    console.log('An error has occurred trying to fetch the data')
+  try {
+    const response = await fetch(url + "/" + title)
+    if (!response.ok) {
+      console.log('An error has occurred trying to fetch the data')
+    }
+    let album = await response.json()
+    return album
+  } catch (error) {
+    console.error(error)
   }
-  let album = await response.json()
-  return album
 }
+
+export const addNewAlbum = async (album) => {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(album)
+    })
+
+    if (!response.ok) {
+      throw new Error('There was a problem with the network response');
+    }
+
+    const newAlbum = await response.json();
+    console.log(newAlbum);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
+export const updateAlbum = async (album) => {
+  try {
+    const response = await fetch((url + '/' + album), {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(album)
+    });
+
+    if (!response.ok) {
+      throw new Error('There was a problem with the network response');
+    }
+
+    const updatedData = await response.json();
+    console.log(updatedData);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
+export const deleteAlbum = async (album) => {
+  try {
+    const response = await fetch((url + '/' + album.id), {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(album)
+    });
+
+    if (!response.ok) {
+      throw new Error('There was a problem with the network response');
+    }
+
+    const deleteData = await response.json();
+    console.log(deleteData);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
 
