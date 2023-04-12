@@ -12,6 +12,25 @@ const showAlbums = async () => {
   albums.forEach(album => {
     html +=
       `
+      <tr>
+        <td class="id">${album.id}</td>
+        <td class="title">${album.title}</td>
+        <td class="artist">${album.artist}</td>
+        <td class="year">${album.year}</td>
+        <td><button class="update">Show</button></td>
+        <td><button class="remove">Remove</button></td>
+        <td><button class="view">Details</button></td>
+      </tr>
+        `
+  })
+  document.querySelector("#albumLibrary").innerHTML = html
+}
+
+showAlbums()
+
+const showAlbum = () => {
+
+  /*   `
         <div class="album">
          <div class="imgContainer">
           <img src="/imgs/music.png" alt="line art of a CD with music note and heart" height=100px width=100px>
@@ -21,12 +40,10 @@ const showAlbums = async () => {
           <p class"artist">ARTIST: ${album.artist}</p>
           <p class"year">YEAR: ${album.year}</p>
           <div class="btns">
-          <button class="update">Update</button> <button class="remove">Remove</button>
+          <button class="update">Update</button> <button class="remove">Remove</button><button class="back">Back</button>
           </div>
         </div>
-        `
-  })
-  document.querySelector("#albumLibrary").innerHTML = html
-}
+        ` */
 
-showAlbums()
+
+}

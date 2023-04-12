@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400&family=Kosugi+Maru&display=swap');
 
 body {
-  background-color: azure;
+  background-image: url("imgs/Backgroung.png");
   font-family: 'Kosugi Maru', sans-serif;
 }
 
@@ -17,6 +17,26 @@ h1 {
   margin-top: 25px;
   text-align: center;
   padding-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+th {
+  border: #5a635e;
+  background-color: mediumseagreen;
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid mediumseagreen;
 }
 
 .albumHeader {
