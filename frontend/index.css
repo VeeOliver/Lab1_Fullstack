@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400&family=Kosugi+Maru&display=swap');
+
+body {
+  background-color: azure;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+.add {
+  font-size: 16px;
+  width: 150px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 25px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.albumHeader {
+  display: flex;
+  flex-direction: row;
+}
+
+.album {
+  margin: 20px;
+  display: inline-flex;
+  height: 300px;
+  width: 250px;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(164, 219, 189);
+  border-radius: 20px;
+  flex-direction: column;
+  background-color: #a4dbbd;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  border-top-right-radius: 25px;
+  padding-bottom: 20px;
+  border-top-left-radius: 25px;
+  border-color: rgb(203, 241, 221);
+  border-style: solid;
+  background-color: azure;
+}
+
+img {
+  padding-top: 10px;
+}
+
+p {
+  width: 12ch;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.btns {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: left;
+}
+
+button {
+  background-color: mediumseagreen;
+  outline: 0px;
+  border-radius: 10px;
+  border: 0px;
+  padding: 10px 15px;
+  margin-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #5a635e;
+}
+
+
+@media (max-width: 600px) {
+  .album {
+    flex-direction: column;
+  }
+
+  .album div {
+    width: 100%;
+  }
+}

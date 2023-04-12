@@ -19,9 +19,6 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, "frontend")))
 app.use('/api/albums', albumRoutes)
 
-/* app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html")
-}) */
 
 mongoose.
   connect(process.env.CONNECTIONURL)
