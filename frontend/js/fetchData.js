@@ -1,3 +1,4 @@
+
 const url = `http://localhost:3000/api/albums`
 
 
@@ -9,15 +10,15 @@ export const fetchAlbums = async () => {
   }
   let albums = await response.json()
   return albums
-  /* await fetch(url)
-    .then(res => res.json())
-    .then(data => {
+}
 
-    })
-    
-    .catch(error => console.log(error)) */
-  //const albums = await axios.get(url)
-  /*   console.log(albums.data)
-    return data */
+export const fetchAlbum = async (id) => {
+  console.log("we get into single album method")
+  const response = await fetch(url + "/" + id)
+  if (!response.ok) {
+    console.log('An error has occurred trying to fetch the data')
+  }
+  let album = await response.json()
+  return album
 }
 

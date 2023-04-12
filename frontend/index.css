@@ -48,7 +48,7 @@ td {
   margin: 20px;
   display: inline-flex;
   height: 300px;
-  width: 250px;
+  width: 300px;
   border: 2px;
   border-style: solid;
   border-color: rgb(164, 219, 189);
@@ -73,13 +73,9 @@ img {
 }
 
 p {
-  width: 12ch;
   margin-left: 15px;
   margin-top: 10px;
   margin-bottom: 0px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .btns {
@@ -105,6 +101,11 @@ button {
 
 button:hover {
   background-color: #5a635e;
+}
+
+.back {
+  width: 200px;
+  margin-bottom: 10px;
 }
 
 
