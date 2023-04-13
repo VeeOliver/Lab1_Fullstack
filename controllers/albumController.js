@@ -28,8 +28,8 @@ const getSingleAlbum = async (req, res) => {
 
 const updateAlbum = async (req, res) => {
   try {
-    const { id } = req.params;
-    const album = await Album.findOneAndUpdate({ id }, req.body);
+    const { id } = req.params
+    const album = await Album.findOneAndUpdate({ id }, req.body, { new: true });
     if (!album) {
       return res.status(404).json({ message: `cannot find any album to update with this ID No.: ${id}` })
     }
@@ -58,8 +58,8 @@ const deleteAlbum = async (req, res) => {
 
 const addAlbum = async (req, res) => {
   try {
-    console.log(" this is the request " + req.params)
-    const { id, title, artist, year } = req.params;
+    console.log(" this is the request " + req.body)
+    const { id } = req.body;
     console.log(`this is the ${id}`)
     const album = await Album.findOne({ "id": id });
     if (album) {

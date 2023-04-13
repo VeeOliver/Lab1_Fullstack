@@ -3,7 +3,6 @@ const url = `http://localhost:3000/api/albums`
 
 
 export const fetchAlbums = async () => {
-  console.log("we get into this method")
   try {
     const response = await fetch(url)
     if (!response.ok) {
@@ -18,7 +17,6 @@ export const fetchAlbums = async () => {
 }
 
 export const fetchAlbum = async (title) => {
-  console.log("we get into single album method")
   try {
     const response = await fetch(url + "/" + title)
     if (!response.ok) {
@@ -42,20 +40,20 @@ export const addNewAlbum = async (album) => {
     })
 
     if (!response.ok) {
-      throw new Error('There was a problem with the network response');
+      throw new Error('There was a problem with the network response')
     }
 
-    const newAlbum = await response.json();
-    console.log(newAlbum);
+    const newAlbum = await response.json()
+    console.log(newAlbum)
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error)
   }
 }
 
 
 export const updateAlbum = async (album) => {
   try {
-    const response = await fetch((url + '/' + album), {
+    const response = await fetch((url + '/' + album.id), {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -68,7 +66,7 @@ export const updateAlbum = async (album) => {
     }
 
     const updatedData = await response.json();
-    console.log(updatedData);
+    console.log(updatedData)
   } catch (error) {
     console.error('Error:', error);
   }

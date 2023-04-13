@@ -3,6 +3,7 @@
 body {
   background-image: url("imgs/Backgroung.png");
   font-family: 'Kosugi Maru', sans-serif;
+  position: relative;
 }
 
 h1 {
@@ -106,6 +107,19 @@ button:hover {
 .back {
   width: 200px;
   margin-bottom: 10px;
+}
+
+.myModal {
+  background-color: azure;
+  border-style: solid;
+  border-color: azure;
+  border-width: 20px;
+  margin: auto;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 
