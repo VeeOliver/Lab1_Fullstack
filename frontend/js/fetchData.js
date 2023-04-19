@@ -1,5 +1,5 @@
 
-const url = `http://localhost:3000/api/albums`
+const url = `/api/albums`
 
 
 export const fetchAlbums = async () => {
@@ -40,7 +40,7 @@ export const addNewAlbum = async (album) => {
     })
 
     if (!response.ok) {
-      throw new Error('There was a problem with the network response')
+      console.log('An error has occurred trying to fetch the data')
     }
 
     const newAlbum = await response.json()
@@ -62,7 +62,7 @@ export const updateAlbum = async (album) => {
     });
 
     if (!response.ok) {
-      throw new Error('There was a problem with the network response');
+      console.log('An error has occurred trying to fetch the data')
     }
 
     const updatedData = await response.json();
@@ -81,16 +81,16 @@ export const deleteAlbum = async (album) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(album)
-    });
+    })
 
     if (!response.ok) {
-      throw new Error('There was a problem with the network response');
+      console.log('An error has occurred trying to fetch the data')
     }
 
-    const deleteData = await response.json();
-    console.log(deleteData);
+    const deleteData = await response.json()
+    console.log(deleteData)
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error)
   }
 }
 
