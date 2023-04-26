@@ -28,7 +28,7 @@ table {
 
 th {
   border: #5a635e;
-  background-color: mediumseagreen;
+  background-color: #f7b3ae;
   text-align: left;
   padding: 10px;
   font-size: 14px;
@@ -37,12 +37,13 @@ th {
 
 td {
   padding: 10px;
-  border-bottom: 1px solid mediumseagreen;
+  border-bottom: 1px solid #f89a93;
 }
 
 .albumHeader {
   display: flex;
   flex-direction: row;
+  background-color: #f7b3ae6d;
 }
 
 .album {
@@ -88,7 +89,7 @@ p {
 }
 
 button {
-  background-color: mediumseagreen;
+  background-color: #f7b3ae;
   outline: 0px;
   border-radius: 10px;
   border: 0px;
